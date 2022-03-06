@@ -8,6 +8,6 @@ import tensorflow as tf
 tf.feature_column. #Feature Columns
 
 tf.keras.layers. #Keras Layers
-tf.keras.models. #Keras Module
+tf.keras.models. #Keras Models
 
 ```
