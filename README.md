@@ -11,3 +11,6 @@ tf.keras.layers. #Keras Layers
 tf.keras.models. #Keras Models
 
 ```
+
+## Resource
+- [TF Workshop](https://github.com/random-forests/tensorflow-workshop)
