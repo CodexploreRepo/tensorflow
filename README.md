@@ -1,14 +1,16 @@
 # Deep Learning
 
-## Tensorflow Models
+## Tensorflow Modules
 ```Python
 #Tensorflow
 import tensorflow as tf
 
 tf.feature_column. #Feature Columns
 
-tf.keras.layers. #Keras Layers
-tf.keras.models. #Keras Models
+from tensorflow import keras
+keras.Input(shape=(32, 32, 3)) #Input shape
+keras.layers. #Keras Layers
+keras.models. #Keras Models
 
 ```
 
