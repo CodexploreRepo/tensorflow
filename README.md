@@ -6,18 +6,22 @@
 import tensorflow as tf
 
 tf.feature_column. #Feature Columns
-
+```
+- Keras 
+```Python
 #Keras
 from tensorflow import keras
 
-#Dataset
+#Datasets
 keras.datasets.mnist.load_data()
 
-#Model
+#Model Creation 
 keras.Input(shape=(32, 32, 3)) #Input shape
 keras.layers. #Keras Layers
 keras.models. #Keras Models
 
+#Utils
+keras.utils.plot_model(model, "my_first_model_with_shape_info.png", show_shapes=True)
 ```
 
 ## Resource
