@@ -142,7 +142,7 @@ history = model.fit(train_images,
   - `history.history["accuracy"]`
   - `history.history["loss"]`
   - `history.epoch`
-  - 
+
 ## CNN
 - `keras.layers.GlobalMaxPooling2D()`: pool size = input size, usually used as last layer in the CNN before connecting to Dense Layers
 
