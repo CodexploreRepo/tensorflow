@@ -1,5 +1,4 @@
 # Deep Learning
-# Advanced Machine Learning
 
 # Table of contents
 - [Table of contents](#table-of-contents)
