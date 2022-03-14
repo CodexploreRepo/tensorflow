@@ -8,7 +8,8 @@
 - [2. Model Creation](#2-model-creation)
   - [2.1. Sequential API](#21-sequential-api)
   - [2.2. Functional API](#22-functional-api)
-  - [2.3. Model Training](#23-model-training)   
+  - [2.3. Model Training](#23-model-training) 
+  - [2.4. Model Evaluation](#24-model-evaluation)  
 
 
 [(Back to top)](#table-of-contents)
@@ -160,6 +161,43 @@ fig, (ax1, ax2) = plt.subplots(nrows = 1, ncols=2, figsize=(15,6))
 plot_history(ax1, 'accuracy')
 plot_history(ax2, 'loss')
 plt.show()
+```
+
+## 2.4. Model Evaluation
+- Evaluate the model on the test set
+```Python
+test_loss, test_acc = model.evaluate(test_images, test_labels)
+print('Test accuracy:', round(test_acc,3))
+```
+- Compute confusion matrix:
+```Python
+pred_proba = model.predict(test_images)
+predictions = np.argmax(pred_proba, axis = 1)  #to convert from prob to class number
+print("Confusion Matrix: ")
+pd.DataFrame(confusion_matrix(test_labels, predictions), index=[f'actual_{i}' for i in range(10)], columns=[f'pred_{i}' for i in range(10)])
+```
+- Visualize the prediction vs actual label
+```Python
+# Code to visualize predictions
+# Correct predictions are highlighted in green
+# Incorrect predictions are highlighted in red
+import numpy as np
+plt.figure(figsize=(10,10))
+for i in range(25):
+    plt.subplot(5,5,i+1)
+    plt.xticks([])
+    plt.yticks([])
+    plt.grid(False)
+    plt.imshow(test_images[i][:,:,0], cmap=plt.cm.binary)
+    predicted_label = predictions[i]
+    true_label = test_labels[i]
+    if predicted_label == true_label:
+      color = 'green'
+    else:
+      color = 'red'
+    plt.xlabel("{} ({})".format(label_names[predicted_label], 
+                                label_names[true_label]),
+                                color=color)
 ```
 
 ## CNN
