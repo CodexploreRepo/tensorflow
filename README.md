@@ -139,9 +139,25 @@ history = model.fit(train_images,
                     callbacks=[checkpoint_cb, early_stopping_cb])
 ```
 - `history` will contain
-  - `history.history["accuracy"]`
-  - `history.history["loss"]`
-  - `history.epoch`
+  - `history.history["accuracy"]`: a list of accuracy per epoch for both train & val (`"val_accuracy"`) set
+  - `history.history["loss"]`: a list of loss per epoch for both train & val (`"val_loss"`) set
+  - `history.epoch`: number of epochs run
+- To visualize **history** information
+
+```Python
+def plot_history(ax, key):
+    val = ax.plot(history.epoch, history.history['val_'+key], '--', label='validation_' + key)
+    ax.plot(history.epoch, history.history[key], color=val[0].get_color(),label= 'training_' + key)
+    ax.legend()
+    ax.set_xlabel('Epochs')
+    ax.set_ylabel(key)
+    ax.set_xlim([0,max(history.epoch)])
+
+fig, (ax1, ax2) = plt.subplots(nrows = 1, ncols=2, figsize=(15,6))
+plot_history(ax1, 'accuracy')
+plot_history(ax2, 'loss')
+plt.show()
+```
 
 ## CNN
 - `keras.layers.GlobalMaxPooling2D()`: pool size = input size, usually used as last layer in the CNN before connecting to Dense Layers
