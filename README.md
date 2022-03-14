@@ -12,7 +12,6 @@
   - [2.4. Model Evaluation](#24-model-evaluation)  
 
 
-[(Back to top)](#table-of-contents)
 
 # 1. Tensorflow Modules
 ```Python
@@ -38,6 +37,8 @@ keras.layers. #Keras Layers
 #To plot the model structure 
 keras.utils.plot_model(model, "my_first_model_with_shape_info.png", show_shapes=True)
 ```
+
+[(Back to top)](#table-of-contents)
 
 # 2. Model Creation
 ## 2.1. Sequential API
@@ -90,6 +91,7 @@ model = tf.keras.Sequential([
 ])
 ```
 
+[(Back to top)](#table-of-contents)
 ## 2.2. Functional API
 - The functional API makes it easy to:
   - Manipulate multiple inputs and outputs. 
@@ -121,6 +123,8 @@ tf.keras.utils.plot_model(model, "fashion_mnist.png", show_shapes=True)
 <img src="https://user-images.githubusercontent.com/64508435/158103268-7a0813b1-300d-44ff-a606-370baa3c58d9.png" width="800" height="700" />
 </p>
 
+
+[(Back to top)](#table-of-contents)
 ## 2.3. Model Training
 - Once the layers are constructed using either `Functional API` or `Sequential API`, we can compile the model
 ```Python
@@ -166,6 +170,7 @@ plot_history(ax2, 'loss')
 plt.show()
 ```
 
+[(Back to top)](#table-of-contents)
 ## 2.4. Model Evaluation
 - Evaluate the model on the test set using `model.evaluate()`
 ```Python
@@ -203,6 +208,7 @@ for i in range(25):
                                 color=color)
 ```
 
+[(Back to top)](#table-of-contents)
 ## CNN
 - `keras.layers.GlobalMaxPooling2D()`: pool size = input size, usually used as last layer in the CNN before connecting to Dense Layers
 
