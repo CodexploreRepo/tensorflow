@@ -58,7 +58,7 @@ model.add(layers.Dense(10, activation='softmax'))   # one output layer with 10 o
 
 model.summary() #to get the summary of the model
 ```
-- Can extend from another pre-trained model
+- Can extend from another pre-trained model, in this example is **MobileNet V2**.
 ```Python
 # Create the base model from the pre-trained model MobileNet V2
 IMG_SIZE = (minSize, minSize)
