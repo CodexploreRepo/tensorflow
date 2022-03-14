@@ -89,7 +89,7 @@ model = tf.keras.Sequential([
 ## 2.2. Functional API
 - The functional API makes it easy to:
   - Manipulate multiple inputs and outputs. 
-  - manipulate non-linear connectivity topologies -- these are models with layers that are not connected sequentially, which the Sequential API cannot handle.
+  - Manipulate non-linear connectivity topologies -- these are models with layers that are not connected sequentially, which the Sequential API cannot handle.
 
 ```Python
 #Layer construction using Functional API
