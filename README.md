@@ -57,6 +57,8 @@ model.add(layers.Dense(128, activation='relu'))     # one hidden layer
 model.add(layers.Dense(10, activation='softmax'))   # one output layer with 10 outputs (From 0 to 9)
 
 model.summary() #to get the summary of the model
+
+tf.keras.utils.plot_model(model, "fashion_mnist.png", show_shapes=True) # To print the structure of the NN
 ```
 - Can extend from another pre-trained model, in this example is **MobileNet V2**.
 ```Python
