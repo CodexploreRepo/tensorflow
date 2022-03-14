@@ -29,7 +29,7 @@ from tensorflow import keras
 keras.datasets.mnist.load_data()
 
 #Model Creation 
-keras.Input(shape=(32, 32, 3)) #Input shape
+keras.Input(shape=(32, 32, 3)) #Input for Functional API
 keras.layers. #Keras Layers
 
 
