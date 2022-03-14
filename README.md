@@ -229,7 +229,7 @@ x = layers.MaxPool2D(pool_size=(2, 2),
 x = layers.MaxPool2D(2)(x)
 ```
 ### 3.1.1. `SAME` vs `VALID` padding:
-- Method 1: `VALID` padding means use no padding 
+- Method 1: `VALID` padding means use no padding ("assume" that all dimensions are valid so that input image fully gets covered by filter and stride you specified)
 ```Python
 #How to compute output size with `VALID` padding
 out_height = ceil((in_height - filter_height + 1) / stride_height)
