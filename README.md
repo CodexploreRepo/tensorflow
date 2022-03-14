@@ -164,15 +164,15 @@ plt.show()
 ```
 
 ## 2.4. Model Evaluation
-- Evaluate the model on the test set
+- Evaluate the model on the test set using `model.evaluate()`
 ```Python
 test_loss, test_acc = model.evaluate(test_images, test_labels)
 print('Test accuracy:', round(test_acc,3))
 ```
-- Compute confusion matrix:
+- Compute confusion matrix using `model.predict()`
 ```Python
-pred_proba = model.predict(test_images)
-predictions = np.argmax(pred_proba, axis = 1)  #to convert from prob to class number
+pred_proba = model.predict(test_images) #.predict() return the prob of each class
+predictions = np.argmax(pred_proba, axis = 1)  #to convert from prob to class number using argmax
 print("Confusion Matrix: ")
 pd.DataFrame(confusion_matrix(test_labels, predictions), index=[f'actual_{i}' for i in range(10)], columns=[f'pred_{i}' for i in range(10)])
 ```
