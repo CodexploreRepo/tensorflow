@@ -82,6 +82,7 @@ model = tf.keras.Sequential([
     layers.Conv2D(64, (3, 3), activation='relu'),
     layers.Flatten(),
     layers.Dense(64, activation='relu'),
+    layers.Dropout(0.2),
     layers.Dense(10, activation='softmax')
 ])
 ```
