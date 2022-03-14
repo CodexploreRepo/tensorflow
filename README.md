@@ -117,6 +117,9 @@ model = tf.keras.Model(input, output, name="fashion_mnist")
 # To print the structure of the NN
 tf.keras.utils.plot_model(model, "fashion_mnist.png", show_shapes=True)
 ```
+<p align="center">
+<img src="https://user-images.githubusercontent.com/64508435/158103268-7a0813b1-300d-44ff-a606-370baa3c58d9.png" width="800" height="700" />
+</p>
 
 ## 2.3. Model Training
 - Once the layers are constructed using either `Functional API` or `Sequential API`, we can compile the model
