@@ -246,6 +246,10 @@ out_width  = ceil(in_width / stride_width)
 - `keras.layers.GlobalMaxPooling2D()`: pool size = input size, usually used as last layer in the CNN before connecting to Dense Layers
 
 [(Back to top)](#table-of-contents)
-## Resource
+
+# Resource
 - [Keras Model - Pre-trained Models](https://keras.io/api/applications/)
 - [TF Workshop](https://github.com/random-forests/tensorflow-workshop)
+
+## Todo List
+- [Autoencoders in Practice: Dimensionality Reduction and Image Denoising](https://towardsdatascience.com/autoencoders-in-practice-dimensionality-reduction-and-image-denoising-ed9b9201e7e1)
