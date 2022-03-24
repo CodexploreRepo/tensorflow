@@ -247,7 +247,7 @@ out_width  = ceil(in_width / stride_width)
 
 [(Back to top)](#table-of-contents)
 
-# Resource
+# Resources
 - [Keras Model - Pre-trained Models](https://keras.io/api/applications/)
 - [TF Workshop](https://github.com/random-forests/tensorflow-workshop)
 
