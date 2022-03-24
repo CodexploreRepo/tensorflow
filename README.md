@@ -11,7 +11,7 @@
   - [2.4. Model Evaluation](#24-model-evaluation)  
 - [3. CNN](#3-cnn)
   - [3.1. CNN Basics](#31-cnn-basics) 
-
+- [Resources](#resources)
 
 # 1. Tensorflow Modules
 ```Python
