@@ -251,6 +251,7 @@ out_width  = ceil(in_width / stride_width)
 - [Keras Model - Pre-trained Models](https://keras.io/api/applications/)
 - [TF Workshop](https://github.com/random-forests/tensorflow-workshop)
 - [Generate Images with BigGAN](https://colab.research.google.com/github/tensorflow/hub/blob/master/examples/colab/biggan_generation_with_tf_hub.ipynb)
-- [Object Localization](https://github.com/lars76/object-localization)
+
 ## Todo List
+- [Object Localization](https://github.com/lars76/object-localization)
 - [Autoencoders in Practice: Dimensionality Reduction and Image Denoising](https://towardsdatascience.com/autoencoders-in-practice-dimensionality-reduction-and-image-denoising-ed9b9201e7e1)
