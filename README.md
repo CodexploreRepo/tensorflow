@@ -254,8 +254,17 @@ out_width  = ceil(in_width / stride_width)
 - [Back-Propagation](https://cs231n.github.io/optimization-2/)
 - [CNN - Visualize Convolution Layers](https://github.com/raghakot/keras-vis)
 - [Generate Images with BigGAN](https://colab.research.google.com/github/tensorflow/hub/blob/master/examples/colab/biggan_generation_with_tf_hub.ipynb)
+## Dataset
+
+| Dataset   |      Description      |  Paper  |
+|-----------|-----------------------|---------|
+| `MNIST`     |  **Handwritten digits**, available from this page, has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from the NIST Special Database 19 which contains digits, uppercase and lowercase handwritten letters. | |
+| `EMNIST` Extended-MNIST | **Handwritten character digits**, letters and digits, and that shares the same image structure as `MNIST`, derived from the NIST Special Database 19  and converted to a 28x28 pixel image format and dataset structure  | [EMNIST: an extension of MNIST to handwritten letters](https://arxiv.org/abs/1702.05373v1) |
+
 
 ## Todo List
 - [Object Localization](https://github.com/lars76/object-localization)
 - [Autoencoders in Practice: Dimensionality Reduction and Image Denoising](https://towardsdatascience.com/autoencoders-in-practice-dimensionality-reduction-and-image-denoising-ed9b9201e7e1)
 - [Dog vs Cat classification](https://www.kaggle.com/competitions/dog-vs-cat-classification/code?fbclid=IwAR309lSCGD4c1nj5XB30r3ijsf4sWVR90GBzpAfBHn4cXoo7M-LnkKRG9F4)
+
+[(Back to top)](#table-of-contents)
