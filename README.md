@@ -260,7 +260,7 @@ out_width  = ceil(in_width / stride_width)
 |-----------|-----------------------|---------|
 | `MNIST`     |  **Handwritten digits**, available from this page, has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from the NIST Special Database 19 which contains digits, uppercase and lowercase handwritten letters. | |
 | `EMNIST` Extended-MNIST | **Handwritten character digits**, letters and digits, and that shares the same image structure as `MNIST`, derived from the NIST Special Database 19  and converted to a 28x28 pixel image format and dataset structure  | [EMNIST: an extension of MNIST to handwritten letters](https://arxiv.org/abs/1702.05373v1) |
-|`IAM`|IAM Handwriting Database contains forms of handwritten English text which can be used to train and test handwritten text recognizers and to perform writer identification and verification experiments.|[Register to access the IAM Handwriting DB 3.0.](https://fki.tic.heia-fr.ch/databases/iam-handwriting-database)|
+|`IAM`|**IAM Handwriting database** contains forms of handwritten English text which can be used to train and test handwritten text recognizers and to perform writer identification and verification experiments.|[Register to access the IAM Handwriting DB 3.0.](https://fki.tic.heia-fr.ch/databases/iam-handwriting-database)|
 
 
 ## Todo List
