@@ -1,26 +1,18 @@
 # Tensorflow
 
 # Table of contents
-- [Table of contents](#table-of-contents)
-- [1. Tensorflow Modules](#1-tensorflow-modules)
-  - [1.1. Keras](#11-keras)  
-- [2. Model Creation](#2-model-creation)
-  - [2.1. Sequential API](#21-sequential-api)
-  - [2.2. Functional API](#22-functional-api)
-  - [2.3. Model Training](#23-model-training) 
-  - [2.4. Model Evaluation](#24-model-evaluation)  
-- [3. CNN](#3-cnn)
-  - [3.1. CNN Basics](#31-cnn-basics) 
-- [Resources](#resources)
 
 # 1. Tensorflow Modules
+
 ```Python
 #Tensorflow
 import tensorflow as tf
 
 tf.feature_column. #Feature Columns
 ```
-## 1.1. Keras 
+
+## 1.1. Keras
+
 ```Python
 #Keras
 from tensorflow import keras
@@ -28,22 +20,26 @@ from tensorflow import keras
 #Datasets
 keras.datasets.mnist.load_data()
 
-#Model Creation 
+#Model Creation
 keras.Input(shape=(32, 32, 3)) #Input for Functional API
 keras.layers. #Keras Layers
 
 
 #Utils
-#To plot the model structure 
+#To plot the model structure
 keras.utils.plot_model(model, "my_first_model_with_shape_info.png", show_shapes=True)
 ```
 
 [(Back to top)](#table-of-contents)
 
 # 2. Model Creation
+
 ## 2.1. Sequential API
+
 - There are 2 ways to create a model using Sequential API
+
 #### 2.1.1. Method 1: using `add` method
+
 ```Python
 '''
 Create a NN with 1 input layer
@@ -62,7 +58,9 @@ model.summary() #to get the summary of the model
 
 tf.keras.utils.plot_model(model, "fashion_mnist.png", show_shapes=True) # To print the structure of the NN
 ```
+
 - Can extend from another pre-trained model, in this example is **MobileNet V2**.
+
 ```Python
 # Create the base model from the pre-trained model MobileNet V2
 IMG_SIZE = (minSize, minSize)
@@ -76,7 +74,9 @@ model = tf.keras.Sequential(base_model)
 #...continue add your own layers here like above example
 model.add(layers.Dense(10, activation='softmax'))
 ```
+
 #### 2.1.2. Method 2: using list of layers as input of `keras.Sequential()`
+
 ```Python
 model = tf.keras.Sequential([
     layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)),
@@ -92,9 +92,11 @@ model = tf.keras.Sequential([
 ```
 
 [(Back to top)](#table-of-contents)
+
 ## 2.2. Functional API
+
 - The functional API makes it easy to:
-  - Manipulate multiple inputs and outputs. 
+  - Manipulate multiple inputs and outputs.
   - Manipulate non-linear connectivity topologies -- these are models with layers that are not connected sequentially, which the Sequential API cannot handle.
 
 ```Python
@@ -114,41 +116,45 @@ x = layers.Dense(256, activation='relu')(x)
 x = layers.Dropout(0.5)(x)
 output = layers.Dense(10, activation='softmax')(x)
 
-model = tf.keras.Model(input, output, name="fashion_mnist") 
+model = tf.keras.Model(input, output, name="fashion_mnist")
 
 # To print the structure of the NN
 tf.keras.utils.plot_model(model, "fashion_mnist.png", show_shapes=True)
 ```
+
 <p align="center">
 <img src="https://user-images.githubusercontent.com/64508435/158103268-7a0813b1-300d-44ff-a606-370baa3c58d9.png" width="800" height="700" />
 </p>
 
-
 [(Back to top)](#table-of-contents)
+
 ## 2.3. Model Training
+
 - Once the layers are constructed using either `Functional API` or `Sequential API`, we can compile the model
+
 ```Python
 # Compile the model with appropriate Loss function. metrics is something you can monitor (but model does not optimize metrc)
 # model.compile: to associate the NN with Loss Function
-model.compile(optimizer=tf.optimizers.Adam(), 
+model.compile(optimizer=tf.optimizers.Adam(),
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
-              
-#interrupt training when it measures no progress on the validation set for a number of epochs (defined by the patience argument), 
+
+#interrupt training when it measures no progress on the validation set for a number of epochs (defined by the patience argument),
 # and it will optionally roll back to the best model
 early_stopping_cb = tf.keras.callbacks.EarlyStopping(patience=5,
                                                   restore_best_weights=True)
 checkpoint_cb = tf.keras.callbacks.ModelCheckpoint("best_model.h5",
                                                 save_best_only=True)
-                                                
+
 # Run the stochastic gradient descent for specified epochs
-history = model.fit(train_images, 
-                    train_labels, 
+history = model.fit(train_images,
+                    train_labels,
                     validation_split=0.2, #using 20% of training data as validation
                     epochs=50,
                     batch_size=128,
                     callbacks=[checkpoint_cb, early_stopping_cb])
 ```
+
 - `history` will contain
   - `history.history["accuracy"]`: a list of accuracy per epoch for both train & val (`"val_accuracy"`) set
   - `history.history["loss"]`: a list of loss per epoch for both train & val (`"val_loss"`) set
@@ -171,20 +177,27 @@ plt.show()
 ```
 
 [(Back to top)](#table-of-contents)
+
 ## 2.4. Model Evaluation
+
 - Evaluate the model on the test set using `model.evaluate()`
+
 ```Python
 test_loss, test_acc = model.evaluate(test_images, test_labels)
 print('Test accuracy:', round(test_acc,3))
 ```
+
 - Compute confusion matrix using `model.predict()`
+
 ```Python
 pred_proba = model.predict(test_images) #.predict() return the prob of each class
 predictions = np.argmax(pred_proba, axis = 1)  #to convert from prob to class number using argmax
 print("Confusion Matrix: ")
 pd.DataFrame(confusion_matrix(test_labels, predictions), index=[f'actual_{i}' for i in range(10)], columns=[f'pred_{i}' for i in range(10)])
 ```
+
 - Visualize the prediction vs actual label
+
 ```Python
 # Code to visualize predictions
 # Correct predictions are highlighted in green
@@ -203,14 +216,17 @@ for i in range(25):
       color = 'green'
     else:
       color = 'red'
-    plt.xlabel("{} ({})".format(label_names[predicted_label], 
+    plt.xlabel("{} ({})".format(label_names[predicted_label],
                                 label_names[true_label]),
                                 color=color)
 ```
 
 [(Back to top)](#table-of-contents)
+
 # 3. CNN
+
 ## 3.1. CNN Basics
+
 ```Python
 #Convolution Layer
 x = layers.Conv2D(filters=5,
@@ -218,24 +234,29 @@ x = layers.Conv2D(filters=5,
                   strides = 2,
                   padding = 'SAME',
                   activation='relu')(x)
-#simplified param input for Conv2D: filters=64, kernel_size=(3x3)         
+#simplified param input for Conv2D: filters=64, kernel_size=(3x3)
 x = layers.Conv2D(64, 3, activation='relu')(x)
 
 #Pooling Layer
-x = layers.MaxPool2D(pool_size=(2, 2), 
+x = layers.MaxPool2D(pool_size=(2, 2),
                      strides=2,
                      padding = 'SAME')(x)
 #simplified param input for Pool: pool_size = 2x2
 x = layers.MaxPool2D(2)(x)
 ```
+
 ### 3.1.1. `SAME` vs `VALID` padding:
+
 - Method 1: `VALID` padding means use no padding ("assume" that all dimensions are valid so that input image fully gets covered by filter and stride you specified)
+
 ```Python
 #How to compute output size with `VALID` padding
 out_height = ceil((in_height - filter_height + 1) / stride_height)
 out_width  = ceil((in_width - filter_width + 1) / stride_width)
 ```
+
 - Method 2: `SAME` padding is applied to each spatial dimension. When the strides are 1, the input is padded such that the output size is the same as the input size.
+
 ```Python
 #How to compute output size with `SAME` padding
 out_height = ceil(in_height / stride_height)
@@ -243,27 +264,30 @@ out_width  = ceil(in_width / stride_width)
 ```
 
 ### 3.1.2. Important Layers in CNN
+
 - `keras.layers.GlobalMaxPooling2D()`: pool size = input size, usually used as last layer in the CNN before connecting to Dense Layers
 
 [(Back to top)](#table-of-contents)
 
 # Resources
+
 - [Keras Model - Pre-trained Models](https://keras.io/api/applications/)
 - [TF Workshop](https://github.com/random-forests/tensorflow-workshop)
 - [Data Pre-Processing](https://cs231n.github.io/neural-networks-2/)
 - [Back-Propagation](https://cs231n.github.io/optimization-2/)
 - [CNN - Visualize Convolution Layers](https://github.com/raghakot/keras-vis)
 - [Generate Images with BigGAN](https://colab.research.google.com/github/tensorflow/hub/blob/master/examples/colab/biggan_generation_with_tf_hub.ipynb)
+
 ## Dataset
 
-| Dataset   |      Description      |  Paper  |
-|-----------|-----------------------|---------|
-| `MNIST`     |  **Handwritten digits**, available from this page, has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from the NIST Special Database 19 which contains digits, uppercase and lowercase handwritten letters. | |
-| `EMNIST` Extended-MNIST | **Handwritten character digits**, letters and digits, and that shares the same image structure as `MNIST`, derived from the NIST Special Database 19  and converted to a 28x28 pixel image format and dataset structure  | [EMNIST: an extension of MNIST to handwritten letters](https://arxiv.org/abs/1702.05373v1) |
-|`IAM`|**IAM Handwriting database** contains forms of handwritten English text which can be used to train and test handwritten text recognizers and to perform writer identification and verification experiments.|[Register to access the IAM Handwriting DB 3.0.](https://fki.tic.heia-fr.ch/databases/iam-handwriting-database)|
-
+| Dataset                 | Description                                                                                                                                                                                                                                                                | Paper                                                                                                           |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `MNIST`                 | **Handwritten digits**, available from this page, has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from the NIST Special Database 19 which contains digits, uppercase and lowercase handwritten letters. |                                                                                                                 |
+| `EMNIST` Extended-MNIST | **Handwritten character digits**, letters and digits, and that shares the same image structure as `MNIST`, derived from the NIST Special Database 19 and converted to a 28x28 pixel image format and dataset structure                                                     | [EMNIST: an extension of MNIST to handwritten letters](https://arxiv.org/abs/1702.05373v1)                      |
+| `IAM`                   | **IAM Handwriting database** contains forms of handwritten English text which can be used to train and test handwritten text recognizers and to perform writer identification and verification experiments.                                                                | [Register to access the IAM Handwriting DB 3.0.](https://fki.tic.heia-fr.ch/databases/iam-handwriting-database) |
 
 ## Todo List
+
 - [Object Localization](https://github.com/lars76/object-localization)
 - [Autoencoders in Practice: Dimensionality Reduction and Image Denoising](https://towardsdatascience.com/autoencoders-in-practice-dimensionality-reduction-and-image-denoising-ed9b9201e7e1)
 - [Dog vs Cat classification](https://www.kaggle.com/competitions/dog-vs-cat-classification/code?fbclid=IwAR309lSCGD4c1nj5XB30r3ijsf4sWVR90GBzpAfBHn4cXoo7M-LnkKRG9F4)
