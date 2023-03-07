@@ -12,11 +12,27 @@
 ## 1.2. What is Keras
 - Keras is a deep learning API for Python, built on top of TensorFlow, that provides a convenient way to define and train any kind of deep learning model. 
 - Through TensorFlow, Keras can run on top of different types of hardware: GPU, TPU, or plain CPU—and can be seamlessly scaled to thousands of machines.
+- TensorFlow is a low-level tensor computing platform, and Keras is a high-level deep learning API
 <p align="center">
 <img src="https://user-images.githubusercontent.com/64508435/223384829-37802e97-8a1a-423d-9eed-868b08995864.png" height="250"/>
 </p>
 
-![image]()
+## 1.3. Common concepts
+#### Low-level tensor manipulation
+- Low-level tensor manipulation—the infrastructure that underlies all modern machine learning. 
+- This translates to **TensorFlow APIs**:
+  - *Tensors*: including special tensors that store the network’s state (variables)
+  - *Tensor operations* such as `addition`, `relu`, `matmul`
+  - *Backpropagation* a way to compute the gradient of mathematical expressions (handled in TensorFlow via the `GradientTape` object)
+
+#### High-level deep learning concepts
+- This translates to Keras APIs:
+  - *Layers*, which are combined into a model
+  - *Loss function* which defines the feedback signal used for learning
+  - *Optimizer* which determines how learning proceeds
+  - *Metrics* to evaluate model performance, such as accuracy
+  - *Training loop* that performs mini-batch stochastic gradient descent
+  - *Metrics* to evaluate model performance, such as accuracy
 
 # 2. Tensorflow Modules
 
