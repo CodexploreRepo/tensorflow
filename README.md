@@ -7,7 +7,7 @@
 - For instance:
   - `TF-Agents` for reinforcement-learning research
   - `TFX` for industry-strength machine learning workflow management
-  -` TensorFlow Serving` for production deployment
+  - `TensorFlow Serving` for production deployment
   - `TensorFlow Hub` repository of pretrained models.
 ## 1.2. What is Keras
 - Keras is a deep learning API for Python, built on top of TensorFlow, that provides a convenient way to define and train any kind of deep learning model. 
