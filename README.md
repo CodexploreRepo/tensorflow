@@ -202,15 +202,12 @@ model.compile(optimizer=keras.optimizers.RMSprop(learning_rate=1e-4),
 </details>
 
 ## 3.4. Model Training
-
+- `fit()` method implements the training loop itself. These are its key arguments:
+  - The **data** (inputs and targets) to train on. `NumPy arrays` or a `TensorFlow Dataset` object
+  - The **number of epochs** to train for: how many times the training loop should iterate over the data passed.
+  - The **batch size** to use within each epoch of mini-batch gradient descent: the number of training examples considered to compute the gradients for one weight update step.
 
 ```Python
-# Compile the model with appropriate Loss function. metrics is something you can monitor (but model does not optimize metrc)
-# model.compile: to associate the NN with Loss Function
-model.compile(optimizer=tf.optimizers.Adam(),
-              loss='sparse_categorical_crossentropy',
-              metrics=['accuracy'])
-
 #interrupt training when it measures no progress on the validation set for a number of epochs (defined by the patience argument),
 # and it will optionally roll back to the best model
 early_stopping_cb = tf.keras.callbacks.EarlyStopping(patience=5,
