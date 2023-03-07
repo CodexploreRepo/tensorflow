@@ -288,7 +288,17 @@ for i in range(25):
                                 color=color)
 ```
 
+## 3.5. Model Inference
+```Python
+# Method 1: using __call__() method of model
+# Input: a NumPy array or TensorFlow tensor -> a TensorFlow tensor
+# Drawback: his will process all inputs in new_inputs at once, which may not be feasible if you’re looking at a lot of data (in particular, it may require more memory than your GPU has).
+predictions = model(new_inputs)
 
+# Method 2: model.predict() -> iterate over the data in small batches and return a NumPy array of predictions.
+# Input: NumPy array or a Dataset -> a NumPy array
+predictions = model.predict(new_inputs, batch_size=128)     
+```
 
 # 4. CNN
 
