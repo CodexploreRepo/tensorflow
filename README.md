@@ -1,8 +1,24 @@
 # Tensorflow
 
-# Table of contents
+# 1. Introduction to Keras and Tensorflow
+## 1.1. What is Tensorflow
+- TensorFlow is a Python-based, free, open source machine learning platform, developed primarily by Google.
+- It’s really a **PLATFORM**, home to a vast ecosystem of components, some developed by Google and some developed by third parties. 
+- For instance:
+  - `TF-Agents` for reinforcement-learning research
+  - `TFX` for industry-strength machine learning workflow management
+  -` TensorFlow Serving` for production deployment
+  - `TensorFlow Hub` repository of pretrained models.
+## 1.2. What is Keras
+- Keras is a deep learning API for Python, built on top of TensorFlow, that provides a convenient way to define and train any kind of deep learning model. 
+- Through TensorFlow, Keras can run on top of different types of hardware: GPU, TPU, or plain CPU—and can be seamlessly scaled to thousands of machines.
+<p align="center">
+<img src="https://user-images.githubusercontent.com/64508435/223384829-37802e97-8a1a-423d-9eed-868b08995864.png" height="250"/>
+</p>
 
-# 1. Tensorflow Modules
+![image]()
+
+# 2. Tensorflow Modules
 
 ```Python
 #Tensorflow
@@ -11,7 +27,7 @@ import tensorflow as tf
 tf.feature_column. #Feature Columns
 ```
 
-## 1.1. Keras
+## 2.1. Keras
 
 ```Python
 #Keras
@@ -30,15 +46,13 @@ keras.layers. #Keras Layers
 keras.utils.plot_model(model, "my_first_model_with_shape_info.png", show_shapes=True)
 ```
 
-[(Back to top)](#table-of-contents)
+# 3. Model Creation
 
-# 2. Model Creation
-
-## 2.1. Sequential API
+## 3.1. Sequential API
 
 - There are 2 ways to create a model using Sequential API
 
-#### 2.1.1. Method 1: using `add` method
+#### 3.1.1. Method 1: using `add` method
 
 ```Python
 '''
@@ -75,7 +89,7 @@ model = tf.keras.Sequential(base_model)
 model.add(layers.Dense(10, activation='softmax'))
 ```
 
-#### 2.1.2. Method 2: using list of layers as input of `keras.Sequential()`
+#### 3.1.2. Method 2: using list of layers as input of `keras.Sequential()`
 
 ```Python
 model = tf.keras.Sequential([
@@ -91,9 +105,7 @@ model = tf.keras.Sequential([
 ])
 ```
 
-[(Back to top)](#table-of-contents)
-
-## 2.2. Functional API
+## 3.2. Functional API
 
 - The functional API makes it easy to:
   - Manipulate multiple inputs and outputs.
@@ -126,9 +138,8 @@ tf.keras.utils.plot_model(model, "fashion_mnist.png", show_shapes=True)
 <img src="https://user-images.githubusercontent.com/64508435/158103268-7a0813b1-300d-44ff-a606-370baa3c58d9.png" width="800" height="700" />
 </p>
 
-[(Back to top)](#table-of-contents)
 
-## 2.3. Model Training
+## 3.3. Model Training
 
 - Once the layers are constructed using either `Functional API` or `Sequential API`, we can compile the model
 
@@ -176,9 +187,7 @@ plot_history(ax2, 'loss')
 plt.show()
 ```
 
-[(Back to top)](#table-of-contents)
-
-## 2.4. Model Evaluation
+## 3.4. Model Evaluation
 
 - Evaluate the model on the test set using `model.evaluate()`
 
@@ -221,11 +230,11 @@ for i in range(25):
                                 color=color)
 ```
 
-[(Back to top)](#table-of-contents)
 
-# 3. CNN
 
-## 3.1. CNN Basics
+# 4. CNN
+
+## 4.1. CNN Basics
 
 ```Python
 #Convolution Layer
@@ -245,7 +254,7 @@ x = layers.MaxPool2D(pool_size=(2, 2),
 x = layers.MaxPool2D(2)(x)
 ```
 
-### 3.1.1. `SAME` vs `VALID` padding:
+### 4.1.1. `SAME` vs `VALID` padding:
 
 - Method 1: `VALID` padding means use no padding ("assume" that all dimensions are valid so that input image fully gets covered by filter and stride you specified)
 
@@ -263,11 +272,11 @@ out_height = ceil(in_height / stride_height)
 out_width  = ceil(in_width / stride_width)
 ```
 
-### 3.1.2. Important Layers in CNN
+### 4.1.2. Important Layers in CNN
 
 - `keras.layers.GlobalMaxPooling2D()`: pool size = input size, usually used as last layer in the CNN before connecting to Dense Layers
 
-[(Back to top)](#table-of-contents)
+
 
 # Resources
 
@@ -277,14 +286,6 @@ out_width  = ceil(in_width / stride_width)
 - [Back-Propagation](https://cs231n.github.io/optimization-2/)
 - [CNN - Visualize Convolution Layers](https://github.com/raghakot/keras-vis)
 - [Generate Images with BigGAN](https://colab.research.google.com/github/tensorflow/hub/blob/master/examples/colab/biggan_generation_with_tf_hub.ipynb)
-
-## Dataset
-
-| Dataset                 | Description                                                                                                                                                                                                                                                                | Paper                                                                                                           |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `MNIST`                 | **Handwritten digits**, available from this page, has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from the NIST Special Database 19 which contains digits, uppercase and lowercase handwritten letters. |                                                                                                                 |
-| `EMNIST` Extended-MNIST | **Handwritten character digits**, letters and digits, and that shares the same image structure as `MNIST`, derived from the NIST Special Database 19 and converted to a 28x28 pixel image format and dataset structure                                                     | [EMNIST: an extension of MNIST to handwritten letters](https://arxiv.org/abs/1702.05373v1)                      |
-| `IAM`                   | **IAM Handwriting database** contains forms of handwritten English text which can be used to train and test handwritten text recognizers and to perform writer identification and verification experiments.                                                                | [Register to access the IAM Handwriting DB 3.0.](https://fki.tic.heia-fr.ch/databases/iam-handwriting-database) |
 
 ## Todo List
 
