@@ -154,10 +154,55 @@ tf.keras.utils.plot_model(model, "fashion_mnist.png", show_shapes=True)
 <img src="https://user-images.githubusercontent.com/64508435/158103268-7a0813b1-300d-44ff-a606-370baa3c58d9.png" width="800" height="700" />
 </p>
 
-
-## 3.3. Model Training
-
+## 3.3. Model Compilation
 - Once the layers are constructed using either `Functional API` or `Sequential API`, we can compile the model
+```Python
+# Shortcut: optimizer, loss, and metrics as strings
+model.compile(optimizer="rmsprop",                  
+              loss="mean_squared_error",            
+              metrics=["accuracy"])
+# Python object: optimizer, loss, and metrics
+model.compile(optimizer=keras.optimizers.RMSprop(),
+              loss=keras.losses.MeanSquaredError(),
+              metrics=[keras.metrics.BinaryAccuracy()])
+# Custom metrics
+model.compile(optimizer=keras.optimizers.RMSprop(learning_rate=1e-4),
+              loss=my_custom_loss,
+              metrics=[my_custom_metric_1, my_custom_metric_2])
+```
+<details>
+  <summary>Optimizer</summary>
+  
+  * SGD (with or without momentum)
+  * RMSprop
+  * Adam
+  * Adagrad
+</details>
+
+<details>
+  <summary>Loss</summary>
+  
+  * CategoricalCrossentropy
+  * SparseCategoricalCrossentropy
+  * BinaryCrossentropy
+  * MeanSquaredError
+  * KLDivergence
+  * CosineSimilarity
+</details>
+
+<details>
+  <summary>Metrics</summary>
+  
+  * CategoricalAccuracy
+  * SparseCategoricalAccuracy
+  * BinaryAccuracy
+  * AUC
+  * Precision
+  * Recall
+</details>
+
+## 3.4. Model Training
+
 
 ```Python
 # Compile the model with appropriate Loss function. metrics is something you can monitor (but model does not optimize metrc)
