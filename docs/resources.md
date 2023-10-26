@@ -1,5 +1,6 @@
 # Resources
 
+- [Deep Learning Udemy Course](https://github.com/mrdbourke/tensorflow-deep-learning)
 - [Keras Model - Pre-trained Models](https://keras.io/api/applications/)
 - [TF Workshop](https://github.com/random-forests/tensorflow-workshop)
 - [Data Pre-Processing](https://cs231n.github.io/neural-networks-2/)
