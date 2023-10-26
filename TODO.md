@@ -8,7 +8,9 @@
 
 ## In Progress
 
-- [ ] Work on Github Repo [JIRA-345]
+- [ ] [Deep Learning Udemy Course](https://github.com/mrdbourke/tensorflow-deep-learning)
+- [ ] [Advanced Practical Data Science](https://harvard-iacs.github.io/2020F-AC295/pages/schedule.html?fbclid=IwAR0wtfFeTCAAX8nwsem0kMgO8W862YtUtE3FLflx1hz4xrhYqgLWJUvyA-E)
+- [ ] [Deep Learning with Python](https://learning.oreilly.com/library/view/deep-learning-with/9781617296864/Text/04.htm#heading_id_4)
 
 ## Done ✓
 
