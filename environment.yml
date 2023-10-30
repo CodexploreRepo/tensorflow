@@ -1,6 +1,7 @@
-name: /Users/codexplore/Developer/repos/tensorflow/venv
+name: tensorflow
 channels:
   - conda-forge
+  - apple
 dependencies:
   - appnope=0.1.3=pyhd8ed1ab_0
   - asttokens=2.4.0=pyhd8ed1ab_0
@@ -138,4 +139,3 @@ dependencies:
       - urllib3==2.0.7
       - werkzeug==3.0.0
       - wrapt==1.14.1
-prefix: /Users/codexplore/Developer/repos/tensorflow/venv
