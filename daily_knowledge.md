@@ -2,6 +2,7 @@
 
 ## Day 1
 
+- `tensorflow` vs GPU: if you have access to a GPU, TensorFlow will automatically use it whenever possible.
 - `tensorflow-metal` initialization
 
   - Observation: When I run a script that uses keras or tensorflow with Apple M2, it shows the initialisation message
