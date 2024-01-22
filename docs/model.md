@@ -17,7 +17,7 @@ Create a NN with 1 input layer
 '''Read more about Sequential API here: https://keras.io/models/sequential/'''
 
 model = tf.keras.Sequential() #Create the model
-model.add(layers.Flatten(input_shape=(28, 28,1)))   # input layer: Flatten = to flatten I/p to 1-d: single list of i/p neuron corresponding to each pixel
+model.add(layers.Flatten(input_shape=(28, 28, 1)))   # input layer: Flatten = to flatten I/p to 1-d: single list of i/p neuron corresponding to each pixel
 model.add(layers.Dense(128, activation='relu'))     # one hidden layer
 model.add(layers.Dense(128, activation='relu'))     # one hidden layer
 model.add(layers.Dense(10, activation='softmax'))   # one output layer with 10 outputs (From 0 to 9)
