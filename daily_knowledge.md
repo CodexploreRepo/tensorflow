@@ -1,5 +1,17 @@
 # Daily Knowledge
 
+## Day 2
+
+- Threshold Logic Unit, Perceptron, Multi-Layer Perceptron
+- Backpropagation: makes predictions for a mini-batch (forward pass), measures the error, then goes through each layer in reverse to measure the error contribution from each parameter (reverse pass), and finally tweaks the connection weights and biases to reduce the error (gradient descent step).
+- Two popular choices of activation functions:
+  - **Hyperbolic Tangent function**: $tanh(z) = 2σ(2z) – 1$
+    - Output range: –1 to 1
+    - make each layer’s output more or less centered around 0 at the beginning of training, which often helps speed up convergence.
+  - **Rectified Linear Unit function** (RELU): $ReLU(z) = max(0, z)$
+    - The ReLU function is continuous but unfortunately not differentiable at $z = 0$
+    - It works very well and has the advantage of being fast to compute
+
 ## Day 1
 
 - `tensorflow` vs GPU: if you have access to a GPU, TensorFlow will automatically use it whenever possible.
