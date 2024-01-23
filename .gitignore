@@ -12,6 +12,7 @@ venv
 
 # Model Checkpoints
 *checkpoint*
+*.tfevents.*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

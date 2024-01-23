@@ -5,6 +5,7 @@
 - [Model](./docs/model.md)
   - [Regression]() -> Need to take note from ipynb
 - [CNN](./docs/cnn.md)
+- [Tensorboard](./docs/tensorboard.md)
 
 ### Loss
 

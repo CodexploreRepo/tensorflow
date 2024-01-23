@@ -95,6 +95,9 @@ tf.keras.utils.plot_model(model, "fashion_mnist.png", show_shapes=True)
 ## 2. Model Compilation
 
 - Once the layers are constructed using either `Functional API` or `Sequential API`, we can compile the model
+- Compile defines: [Losses](https://keras.io/api/losses), [Optimizer](https://keras.io/api/optimizers), and [Metrics](https://keras.io/api/metrics)
+- **Note 1**: You can compile a model as many times as you want without causing any problem to pretrained weights. &#8594; if you want to re-train the weights from stratch, you need to init model object again
+- **Note 2**: You need a compiled model to train (because training uses the loss function and the optimizer). But it's not necessary to compile a model for predicting.
 
 ```Python
 # Shortcut: optimizer, loss, and metrics as strings
@@ -116,7 +119,7 @@ model.compile(optimizer=keras.optimizers.RMSprop(learning_rate=1e-4),
   
   * SGD (with or without momentum)
   * RMSprop
-  * Adam
+  * Adam, Adam W
   * Adagrad
 </details>
 
