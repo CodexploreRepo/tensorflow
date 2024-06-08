@@ -1,5 +1,18 @@
 # Daily Knowledge
 
+## Day 3
+
+### Model Architecture
+
+- Weight initialization: we can initialize the weights for layers in the networks
+
+```Python
+# initialize the weights to 0, which makes the training procedure slightly faster.
+Sequential([
+    Dense(1, kernel_initializer=tf.initializers.zeros)
+])
+```
+
 ## Day 2
 
 - Threshold Logic Unit, Perceptron, Multi-Layer Perceptron
